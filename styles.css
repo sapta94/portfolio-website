@@ -1057,6 +1057,34 @@ footer p {
     animation: rise .8s ease both
 }
 
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.tech-item > i {
+    font-size: 26px;
+    color: #3d9cff;
+    line-height: 1;
+}
+
+.tech-item > span {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.tech-item small {
+    display: block;
+    margin-top: 3px;
+    font: 8px 'DM Mono';
+    color: #5f7690;
+}
+
 @keyframes rise {
     from {
         opacity: 0;
