@@ -358,37 +358,120 @@ nav>a:not(.nav-cta):hover {
     color: #6e8297
 }
 
+/* =========================================
+   TECHNOLOGY STACK
+   ========================================= */
+
 .stack-strip {
     background: #07101a;
-    border-bottom: 1px solid var(--line)
+    border-bottom: 1px solid var(--line);
 }
+
+
+/* Main container */
 
 .stack-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
     display: flex;
     align-items: center;
-    gap: 25px;
-    overflow: auto;
-    padding-top: 20px;
-    padding-bottom: 20px
+
+    gap: 28px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
+
+/* Hide scrollbar - Chrome / Safari */
+
+.stack-inner::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* TECH I WORK WITH */
 
 .stack-label {
-    font: 9px 'DM Mono';
+    flex: 0 0 auto;
+
+    margin-right: 4px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    font-weight: 400;
+
+    letter-spacing: .06em;
+
     color: #52718e;
-    white-space: nowrap
+
+    white-space: nowrap;
 }
 
-.stack-inner>span:not(.stack-label) {
-    font-weight: 700;
-    font-size: 13px;
-    white-space: nowrap
+
+/* Individual technology */
+
+.tech-item {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    flex: 0 0 auto;
+
+    white-space: nowrap;
 }
 
-.stack-inner small {
+
+/* Devicon */
+
+.tech-item > i {
+    flex: 0 0 auto;
+
+    font-size: 28px;
+    line-height: 1;
+
+    color: #3d9cff;
+}
+
+
+/* Technology name */
+
+.tech-item > span {
     display: block;
-    font: 8px 'DM Mono';
+
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    line-height: 1.1;
+}
+
+
+/* Category */
+
+.tech-item small {
+    display: block;
+
+    margin-top: 3px;
+
     color: #5f7690;
-    margin-top: 3px
+
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    font-weight: 400;
+
+    line-height: 1;
 }
 
 .about {
@@ -525,215 +608,301 @@ nav>a:not(.nav-cta):hover {
 }
 
 .experience {
-  position: relative;
-  background: #050b13;
-  overflow: hidden;
+    position: relative;
+    background: #050b13;
+    overflow: hidden;
 }
+
+
+/* Main experience container */
 
 .experience .section-pad {
-  position: relative;
-  z-index: 2;
-}
+    position: relative;
+    z-index: 2;
 
-.experience .section-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-  gap: 80px;
-  align-items: end;
-  padding-bottom: 72px;
-  border-bottom: 1px solid rgba(130, 170, 210, 0.18);
-}
+    display: grid;
 
-.experience .section-heading h2 {
-  margin: 16px 0 0;
-}
+    /*
+     * LEFT  = career introduction
+     * RIGHT = experience timeline
+     */
+    grid-template-columns: 0.75fr 1.25fr;
 
-.experience .section-heading > p {
-  max-width: 500px;
-  margin: 0 0 4px;
-  color: #7890a8;
-  font-size: 14px;
-  line-height: 1.8;
+    column-gap: 80px;
+
+    align-items: start;
+
+    padding-top: 110px;
+    padding-bottom: 110px;
 }
 
 
 /* =========================================
-   TIMELINE
+   LEFT SIDE — INTRO
+   ========================================= */
+
+.experience .section-heading {
+    display: block;
+
+    /*
+     * Keep the introduction on the left
+     */
+    position: sticky;
+    top: 120px;
+
+    padding: 0;
+
+    border: 0;
+}
+
+
+/* MY JOURNEY */
+
+.experience .section-heading .eyebrow {
+    margin-bottom: 20px;
+}
+
+
+/* Main heading */
+
+.experience .section-heading h2 {
+    margin: 0 0 30px;
+
+    max-width: 430px;
+
+    font-size: clamp(40px, 4vw, 55px);
+
+    line-height: 1.02;
+
+    letter-spacing: -0.05em;
+}
+
+
+/* Description */
+
+.experience .section-heading > p {
+    max-width: 390px;
+
+    margin: 0;
+
+    color: #7890a8;
+
+    font-size: 14px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================
+   RIGHT SIDE — TIMELINE
    ========================================= */
 
 .timeline {
-  position: relative;
-  width: 100%;
-  max-width: 1050px;
-  margin: 70px auto 0;
-  padding-bottom: 30px;
+    position: relative;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    padding: 5px 0 0 0;
 }
 
 
-/* Vertical line */
+/* Vertical timeline line */
 
 .timeline::before {
-  content: "";
-  position: absolute;
-  left: 205px;
-  top: 8px;
-  bottom: 10px;
-  width: 1px;
-  background: linear-gradient(
-    to bottom,
-    rgba(45, 145, 255, 0.9),
-    rgba(45, 145, 255, 0.15)
-  );
+    content: "";
+
+    position: absolute;
+
+    /*
+     * Timeline line sits between
+     * date and experience content
+     */
+    left: 205px;
+
+    top: 8px;
+    bottom: 20px;
+
+    width: 1px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(45, 145, 255, 0.95),
+        rgba(45, 145, 255, 0.12)
+    );
 }
 
 
-/* Individual experience */
+/* =========================================
+   EXPERIENCE ROW
+   ========================================= */
 
 .timeline-row {
-  position: relative;
+    position: relative;
 
-  display: grid;
-  grid-template-columns: 170px 70px minmax(0, 1fr);
+    display: grid;
 
-  gap: 0;
+    grid-template-columns: 170px 70px minmax(0, 1fr);
 
-  min-height: 145px;
+    gap: 0;
 
-  /* IMPORTANT:
-     Keep these visible.
-     Do not use opacity: 0 here unless
-     your JS explicitly reveals them.
-  */
+    min-height: 145px;
 
-  opacity: 1;
-  visibility: visible;
-  transform: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
 }
 
 
 /* Date */
 
 .timeline-row time {
-  display: block;
+    display: block;
 
-  padding-top: 4px;
+    padding-top: 4px;
 
-  color: #6f8499;
+    color: #6f8499;
 
-  font-family: "DM Mono", monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+    font-family: "DM Mono", monospace;
 
-  white-space: nowrap;
+    font-size: 11px;
+
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
 }
 
 
-/* Center column */
+/* =========================================
+   TIMELINE DOT
+   ========================================= */
 
 .timeline-row .dot {
-  position: relative;
+    position: relative;
 
-  width: 10px;
-  height: 10px;
+    width: 10px;
+    height: 10px;
 
-  margin-top: 5px;
-  margin-left: 26px;
+    margin-top: 5px;
+    margin-left: 26px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: #0b111a;
+    background: #0b111a;
 
-  border: 2px solid #238cff;
+    border: 2px solid #238cff;
 
-  box-shadow:
-    0 0 0 5px rgba(35, 140, 255, 0.08),
-    0 0 18px rgba(35, 140, 255, 0.35);
+    box-shadow:
+        0 0 0 5px rgba(35, 140, 255, 0.08),
+        0 0 18px rgba(35, 140, 255, 0.35);
 
-  z-index: 3;
+    z-index: 3;
 }
 
 
-/* Experience content */
+/* =========================================
+   EXPERIENCE CONTENT
+   ========================================= */
 
 .timeline-row > div:last-child {
-  padding: 0 0 55px 0;
+    padding: 0 0 55px 0;
 }
 
 
 .timeline-row h3 {
-  margin: 0 0 8px;
+    margin: 0 0 8px;
 
-  color: #edf5ff;
+    color: #edf5ff;
 
-  font-size: 19px;
-  font-weight: 700;
+    font-size: 19px;
 
-  line-height: 1.35;
+    font-weight: 700;
+
+    line-height: 1.35;
 }
 
+
+/* CURRENT badge */
 
 .timeline-row h3 span {
-  display: inline-block;
+    display: inline-block;
 
-  margin-left: 10px;
-  padding: 4px 8px;
+    margin-left: 10px;
 
-  border-radius: 999px;
+    padding: 4px 8px;
 
-  background: rgba(35, 140, 255, 0.12);
-  border: 1px solid rgba(35, 140, 255, 0.3);
+    border-radius: 999px;
 
-  color: #42a5ff;
+    background: rgba(35, 140, 255, 0.12);
 
-  font-family: "DM Mono", monospace;
-  font-size: 9px;
-  font-weight: 500;
+    border: 1px solid rgba(35, 140, 255, 0.3);
 
-  vertical-align: middle;
+    color: #42a5ff;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    vertical-align: middle;
 }
 
+
+/* Company */
 
 .timeline-row > div:last-child > b {
-  display: block;
+    display: block;
 
-  margin-bottom: 12px;
+    margin-bottom: 12px;
 
-  color: #8fa7bd;
+    color: #8fa7bd;
 
-  font-size: 13px;
-  font-weight: 600;
+    font-size: 13px;
+
+    font-weight: 600;
 }
 
+
+/* Description */
 
 .timeline-row p {
-  max-width: 620px;
+    max-width: 600px;
 
-  margin: 0;
+    margin: 0;
 
-  color: #71879b;
+    color: #71879b;
 
-  font-size: 13px;
-  line-height: 1.75;
+    font-size: 13px;
+
+    line-height: 1.75;
 }
 
 
-/* Current role */
+/* =========================================
+   CURRENT ROLE
+   ========================================= */
 
 .timeline-row.current h3 {
-  color: #ffffff;
+    color: #ffffff;
 }
+
 
 .timeline-row.current .dot {
-  background: #238cff;
+    background: #238cff;
 
-  box-shadow:
-    0 0 0 6px rgba(35, 140, 255, 0.12),
-    0 0 25px rgba(35, 140, 255, 0.6);
+    box-shadow:
+        0 0 0 6px rgba(35, 140, 255, 0.12),
+        0 0 25px rgba(35, 140, 255, 0.6);
 }
+
 
 .timeline-row.current time {
-  color: #3fa2ff;
+    color: #3fa2ff;
 }
+
 
 .projects {
     padding-top: 110px;
@@ -1266,6 +1435,7 @@ footer p {
     }
 
     .stack-inner {
+        gap: 22px;
         padding-left: 18px;
         padding-right: 18px
     }
