@@ -1266,7 +1266,12 @@ footer p {
     }
 }
 
-@media(max-width:850px) {
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
     nav {
         position: absolute;
         top: 76px;
@@ -1278,221 +1283,291 @@ footer p {
         padding: 16px;
         display: none;
         flex-direction: column;
-        align-items: stretch
+        align-items: stretch;
     }
 
     nav.open {
-        display: flex
+        display: flex;
     }
 
-    nav>a:not(.nav-cta) {
-        padding: 10px
+    nav > a:not(.nav-cta) {
+        padding: 10px;
     }
 
     .nav-cta {
-        text-align: center
+        text-align: center;
     }
 
     .menu {
-        display: block
+        display: block;
     }
 
     .hero {
         grid-template-columns: 1fr;
-        padding-top: 130px
+        padding-top: 130px;
     }
 
     .hero-art {
-        height: 400px
+        height: 400px;
     }
 
     .metrics {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px
+        gap: 20px;
     }
 
     .metric {
         border: 0;
-        padding: 0
+        padding: 0;
     }
 
     .about {
         grid-template-columns: 1fr;
-        gap: 40px
-    }
-
-    .section-heading {
-        grid-template-columns: 1fr;
-        gap: 10px
+        gap: 40px;
     }
 
     .project-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
     }
 
     .principle-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
     }
 
-    .timeline-row {
-        grid-template-columns: 95px 25px 1fr
+
+    /* =====================================================
+       EXPERIENCE — MOBILE
+       ===================================================== */
+
+    /*
+     * IMPORTANT:
+     * Desktop uses:
+     *
+     *   0.75fr | 1.25fr
+     *
+     * On mobile we need:
+     *
+     *   1fr
+     *
+     * Otherwise the timeline stays in the right
+     * desktop column and gets pushed outside the viewport.
+     */
+    .experience .section-pad {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 
+
+    /* Intro becomes normal flow instead of sticky */
     .experience .section-heading {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    padding-bottom: 45px;
-  }
+        position: relative;
+        top: auto;
+        padding-bottom: 20px;
+    }
 
-  .timeline {
-    margin-top: 50px;
-  }
+    .experience .section-heading h2 {
+        max-width: 100%;
+    }
 
-  .timeline::before {
-    left: 9px;
-  }
+    .experience .section-heading > p {
+        max-width: 100%;
+    }
 
-  .timeline-row {
-    grid-template-columns: 35px minmax(0, 1fr);
-    min-height: auto;
-  }
 
-  .timeline-row time {
-    grid-column: 2;
-    grid-row: 1;
+    /* Timeline below the introduction */
+    .timeline {
+        width: 100%;
+        margin-top: 40px;
+    }
 
-    margin-bottom: 8px;
-    padding: 0;
-  }
 
-  .timeline-row .dot {
-    grid-column: 1;
-    grid-row: 1 / span 2;
+    /*
+     * Mobile timeline:
+     *
+     * 35px = timeline/dot area
+     * rest  = content
+     */
+    .timeline-row {
+        grid-template-columns: 35px minmax(0, 1fr);
+        min-height: auto;
+    }
 
-    margin-left: 4px;
-    margin-top: 3px;
-  }
 
-  .timeline-row > div:last-child {
-    grid-column: 2;
-    grid-row: 2;
+    /* Timeline line */
+    .timeline::before {
+        left: 9px;
+        top: 8px;
+        bottom: 20px;
+    }
 
-    padding-bottom: 45px;
-  }
 
-  .timeline-row h3 {
-    font-size: 17px;
-  }
+    /* Date */
+    .timeline-row time {
+        grid-column: 2;
+        grid-row: 1;
+
+        padding: 0;
+        margin-bottom: 8px;
+        white-space: nowrap;
+    }
+
+
+    /* Timeline dot */
+    .timeline-row .dot {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+
+        margin-left: 4px;
+        margin-top: 3px;
+    }
+
+
+    /* Experience content */
+    .timeline-row > div:last-child {
+        grid-column: 2;
+        grid-row: 2;
+
+        min-width: 0;
+        padding-bottom: 45px;
+    }
+
+
+    .timeline-row h3 {
+        font-size: 17px;
+        overflow-wrap: break-word;
+    }
+
+    .timeline-row > div:last-child > b {
+        overflow-wrap: break-word;
+    }
+
+    .timeline-row p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
 
     .about h2,
     .section-heading h2,
     .principles h2,
     .contact h2 {
-        font-size: 38px
+        font-size: 38px;
     }
 }
 
-@media(max-width:560px) {
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 560px) {
+
     .section-pad {
         padding-left: 18px;
-        padding-right: 18px
+        padding-right: 18px;
     }
 
     .header {
-        padding: 0 18px
+        padding: 0 18px;
     }
 
     .hero h1 {
-        font-size: 47px
+        font-size: 47px;
     }
 
     .hero-art {
-        height: 330px
+        height: 330px;
     }
 
     .terminal-card {
         top: 30px;
         right: -20px;
-        transform: rotate(2deg) scale(.9)
+        transform: rotate(2deg) scale(.9);
     }
 
     .quote {
         bottom: 0;
-        font-size: 15px
+        font-size: 15px;
     }
 
     .floating-chip {
-        bottom: 5px
+        bottom: 5px;
     }
 
     .metrics {
         padding-left: 18px;
-        padding-right: 18px
+        padding-right: 18px;
     }
 
     .metric strong {
-        font-size: 25px
+        font-size: 25px;
     }
 
     .stack-inner {
         gap: 22px;
         padding-left: 18px;
-        padding-right: 18px
+        padding-right: 18px;
     }
 
     .about {
-        padding-top: 75px
+        padding-top: 75px;
     }
 
     .about-card {
-        min-height: 430px
+        min-height: 430px;
     }
 
     .portrait {
-        height: 300px
+        height: 300px;
     }
 
     .traits {
-        grid-template-columns: 1fr
-    }
-
-    .timeline-row {
         grid-template-columns: 1fr;
-        gap: 8px
     }
 
-    .dot {
-        display: none
+
+    /* Keep the mobile timeline intact */
+    .timeline-row {
+        grid-template-columns: 35px minmax(0, 1fr);
+        gap: 0;
     }
+
+
+    .timeline-row h3 {
+        font-size: 17px;
+    }
+
 
     .project-content h3 {
-        font-size: 20px
+        font-size: 20px;
     }
 
     .dashboard {
-        grid-template-columns: 85px 1fr
+        grid-template-columns: 85px 1fr;
     }
 
     .dash-main {
-        padding: 14px
+        padding: 14px;
     }
 
     .dash-main h4 {
-        font-size: 15px
+        font-size: 15px;
     }
 
     .dash-stats {
         gap: 8px;
-        font-size: 7px
+        font-size: 7px;
     }
 
     footer {
         align-items: start;
         gap: 25px;
-        flex-direction: column
+        flex-direction: column;
     }
 
     .footer-links {
-        align-self: flex-end
+        align-self: flex-end;
     }
 }
