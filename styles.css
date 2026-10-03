@@ -954,6 +954,15 @@ nav>a:not(.nav-cta):hover {
     box-shadow: 0 30px 50px rgba(0, 0, 0, .3)
 }
 
+.smartpay-preview {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #21405d;
+    border-radius: 12px;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, .3)
+}
+
 .dashboard aside {
     border-right: 1px solid #18334b;
     padding: 18px 13px;
